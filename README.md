@@ -1,26 +1,34 @@
-# File Management - NetBSD
+# FILE MANAGEMENT SYSTEM
 
-C/POSIX tool for reading file and directory metadata. The core modules are separate from the user interface so a GUI can be added later.
+## 1. Gii thiu
 
-## Functions
+File Management System l chng trnh C chy trn NetBSD, h tr xem v phn tch thng tin file/th mc trong mi trng UNIX.
 
-- Show type, permissions, inode, hard-link count, size, UID/GID and timestamps.
-- List a directory and optionally search recursively or filter names.
-- Compare metadata for two paths.
-- Export reports as TXT or CSV.
-- Use `lstat()` by default; `info -L` follows symbolic links.
+Chng trnh hin chy trn terminal, s dng cc hm h thng POSIX nh `stat()`, `lstat()`, `opendir()` v `readdir()`. Phn x l c tch thnh cc module ring  c th mm rng thm giao din  ha sau ny.
 
-## Build
+## 2. Mi trng pht trin
 
-    make
+- H iu hnh: NetBSD 10.1 amd64
+- Ngn ng: C
+- Chun bin dch: C99
+- Trnh bin dch: `cc`
+- Cng c qun l m ngun: Git
+- Khng ph thuc Ubuntu
+- Phin bn hin ti cha cn GTK hoc X11
 
-## Examples
+## 3. Cu trc d n
 
-    ./filemanager info fileinfo.c /etc /dev/null
-    ./filemanager info -L linkname
-    ./filemanager list /etc
-    ./filemanager list -R /home Nguyen
-    ./filemanager search -R /home report
-    ./filemanager compare file-a file-b
-    ./filemanager export csv report.csv fileinfo.c /etc/passwd
-    ./filemanager export txt report.txt fileinfo.c /etc/passwd
+```text
+FileManagement/
+ include/
+ filemanager.h       # Khai b   o kiu d liu v hm dng chung
+ src/
+ main.c              # c lnh v iu phi chc nng
+ fileinfo.c          # Ly v    hin th metadata
+ directory.c         # Lit k    v tm kim trong th mc
+ compare.c           # So s   nh metadata hai ng dn
+ report.c            # Xut b   o co TXT/CSV
+ fileinfo.c              # Phin bn ban u ca chng trnh
+ fileinfo                # Chng trnh bn u  bin dch
+ Makefile
+ README.md
