@@ -1,0 +1,19 @@
+# Binaries
+*.exe
+*.o
+*.obj
+*.a
+*.so
+*.dylib
+filemanager
+filemanager_c
+
+# Output reports
+*.csv
+*.json
+*.tmp
+report.*
+
+# OS generated
+.DS_Store
+Thumbs.db
